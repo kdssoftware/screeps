@@ -30,7 +30,7 @@ module.exports.loop = function () {
         }
     }
 
-    spawnSpawning.spawning(35,60,5);
+    spawnSpawning.spawning(35,50,15);
 
     for(var name in Game.creeps) {
         var creep = Game.creeps[name];
