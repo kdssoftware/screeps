@@ -4,10 +4,10 @@ var roleBuilder = require('role.builder');
 var spawnSpawning = require('spawn.spawning');
 
 module.exports.loop = function () {
-    /*
-    let towers = Game.rooms["W23S6"]({
+
+    let towers = Game.rooms["W23S6"].find(FIND_MY_STRUCTURES,({
         filter: (structure) => structure.structureType == STRUCTURE_TOWER
-    });
+    }));
     for(let tower in towers) {
         if (tower) {
             var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
@@ -23,7 +23,6 @@ module.exports.loop = function () {
             }
         }
     }
-    */
 
     for(var name in Memory.creeps) {
         if(!Game.creeps[name]) {
