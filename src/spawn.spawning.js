@@ -1,19 +1,26 @@
 let nr = 0;
-
+global.creepsOnSources = [0,0];
 let doSpawn = (role,body=[WORK,CARRY,MOVE])=>{
     var newName = role.substr(0,3) + nr;
     nr++;
+    let onSource;
+    if(creepsOnSources[0]<=creepsOnSources[1]){
+        onSource = 0;
+        creepsOnSources[0]++;
+    }else{
+        onSource = 1;
+        creepsOnSources[1]++;
+    }
     Game.spawns['Spawn1'].spawnCreep(body, newName,
-        {memory: {role: role,sources:0}});
+        {memory: {role: role,onSource:onSource}});
 };
 
 var spawnSpawing = {
     spawning: function(harvester,builder,upgrader){
         let oneHundredPercent = harvester+builder+upgrader;
         if(oneHundredPercent!= 100){
-            //console.log("spawn.spawning arguments not equal to 100%! ",oneHundredPercent);
+            console.log("spawn.spawning arguments not equal to 100%! ",oneHundredPercent);
         }
-
         let pop = {total:0,roles:{
                 upgrader:0,builder:0,harvester:0
             }};

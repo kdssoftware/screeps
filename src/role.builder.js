@@ -22,16 +22,9 @@ var roleBuilder = {
         }
         else {
             var sources = creep.room.find(FIND_SOURCES);
-            let harvest = creep.harvest(sources[creep.memory.sources]);
+            let harvest = creep.harvest(sources[creep.memory.onSource]);
             if(harvest == ERR_NOT_IN_RANGE) {
-                let moving = creep.moveTo(sources[creep.memory.sources], {visualizePathStyle: {stroke: '#ffaa00'}});
-                if(moving==ERR_NO_PATH){
-                    if(creep.memory.sources==0){
-                        creep.memory.sources=1;
-                    }else{
-                        creep.memory.sources=0;
-                    }
-                }
+                let moving = creep.moveTo(sources[creep.memory.onSource], {visualizePathStyle: {stroke: '#ffaa00'}});
             }
         }
     }
