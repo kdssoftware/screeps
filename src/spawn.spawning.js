@@ -1,9 +1,11 @@
 let nr = 0;
-let doSpawn = (role,body=[WORK,WORK,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE])=>{
+let doSpawn = (role,body=[WORK,CARRY,MOVE])=>{
     var newName = role.substr(0,3) + nr;
     nr++;
-    console.log(Game.spawns['Spawn1'].spawnCreep(body, newName,
-        {memory: {role: role,onSource:0}}));
+    if(Game.spawns['Spawn1'].spawnCreep(body, newName,
+        {memory: {role: role,onSource:0}})==ERR_NOT_ENOUGH_ENERGY){
+        console.log('Not enough energy to spawn a creep with body '+JSON.stringify(body)+', current energy: '+Game.rooms["W23S6"].energyAvailable+' but needs '+body.length*50+' energy');
+    }
 };
 
 var spawnSpawing = {
