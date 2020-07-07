@@ -31,7 +31,7 @@ module.exports.loop = function () {
         }
     }
 
-    spawnSpawning.spawning(35,50,15);
+    spawnSpawning.spawning(25,50,25);
     managerEnergyHarvester.manage();
 
     for(var name in Game.creeps) {

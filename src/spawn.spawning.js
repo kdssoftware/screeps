@@ -1,5 +1,5 @@
 let nr = 0;
-let doSpawn = (role,body=[WORK,CARRY,MOVE])=>{
+let doSpawn = (role,body=[WORK,WORK,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE])=>{
     var newName = role.substr(0,3) + nr;
     nr++;
     Game.spawns['Spawn1'].spawnCreep(body, newName,
@@ -31,7 +31,7 @@ var spawnSpawing = {
                     //console.log("Couldnt find the role "+i.memory.role);
             }
         }
-        if(pop.total>=15){
+        if(pop.total>=10){
             return;
         }
         if(Game.rooms["W23S6"].energyAvailable>=300){
