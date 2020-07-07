@@ -26,6 +26,8 @@ var roleBuilder = {
             console.log(harvest);
             if(harvest == ERR_NOT_IN_RANGE) {
                 creep.moveTo(sources[0], {visualizePathStyle: {stroke: '#ffaa00'}});
+            }else if(harvest==ERR_NOT_IN_RANGE){
+                creep.moveTo(sources[1], {visualizePathStyle: {stroke: '#ffaa00'}});
             }
         }
     }
