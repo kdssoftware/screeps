@@ -4,8 +4,8 @@ var roleBuilder = require('role.builder');
 var spawnSpawning = require('spawn.spawning');
 
 module.exports.loop = function () {
-    //
-    let towers = Game.structures({
+    /*
+    let towers = Game.rooms["W23S6"]({
         filter: (structure) => structure.structureType == STRUCTURE_TOWER
     });
     for(let tower in towers) {
@@ -23,6 +23,7 @@ module.exports.loop = function () {
             }
         }
     }
+    */
 
     for(var name in Memory.creeps) {
         if(!Game.creeps[name]) {
