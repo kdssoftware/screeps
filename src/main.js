@@ -5,7 +5,9 @@ var spawnSpawning = require('spawn.spawning');
 
 module.exports.loop = function () {
 
-    let towers = Game.structures.structureType(STRUCTURE_TOWER);
+    let towers =creep.room.find(FIND_STRUCTURES, {
+        filter: (structure) => structure.structureType == STRUCTURE_TOWER
+    });
     for(let tower in towers) {
         if (tower) {
             var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
