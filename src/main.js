@@ -38,7 +38,6 @@ module.exports.loop = function () {
         var creep = Game.creeps[name];
         checkOnSources[creep.memory.onSource] ++;
     }
-    console.log(checkOnSources);
     if(!CURRENT_AMOUNT_OF_CREEPS==(checkOnSources[0]+checkOnSources[1])){
         if(checkOnSources[0]%2!=0){
             checkOnSources[0]--;
