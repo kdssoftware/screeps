@@ -44,6 +44,7 @@ module.exports.loop = function () {
         checkOnSources[1]--;
     }
     if(checkOnSources[0]!=checkOnSources[1]){
+        let creepsOnSources=0;
         for(let name in Game.creeps){
             var creep = Game.creeps[name];
             creep.memory.onSource = creepsOnSources;
@@ -58,12 +59,7 @@ module.exports.loop = function () {
     for(var name in Game.creeps) {
         var creep = Game.creeps[name];
         if(!creep.memory.onSource){
-            creep.memory.onSource = creepsOnSources;
-            if(creepsOnSources==0){
-                creepsOnSources=1;
-            }else{
-                creepsOnSources=0;
-            }
+            creep.memory.onSource = 0;
         }
         if(creep.memory.role == 'harvester') {
             roleHarvester.run(creep);
