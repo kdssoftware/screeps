@@ -23,9 +23,8 @@ var roleBuilder = {
         else {
             var sources = creep.room.find(FIND_SOURCES);
             let harvest = creep.harvest(sources[0]);
-            console.log(harvest);
             if(harvest == ERR_NOT_IN_RANGE) {
-                console.log(creep.moveTo(sources[0], {visualizePathStyle: {stroke: '#ffaa00'}});)
+                console.log(creep.moveTo(sources[0], {visualizePathStyle: {stroke: '#ffaa00'}}));
             }
         }
     }
