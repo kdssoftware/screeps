@@ -1,15 +1,13 @@
 let nr = 0;
-global.creepsOnSources = [0,0];
+global.creepsOnSources = 0;
 let doSpawn = (role,body=[WORK,CARRY,MOVE])=>{
     var newName = role.substr(0,3) + nr;
     nr++;
     let onSource;
-    if(creepsOnSources[0]<=creepsOnSources[1]){
-        onSource = 0;
-        creepsOnSources[0]++;
+    if(creepsOnSources==0){
+        creepsOnSources=1;
     }else{
-        onSource = 1;
-        creepsOnSources[1]++;
+        creepsOnSources=0;
     }
     Game.spawns['Spawn1'].spawnCreep(body, newName,
         {memory: {role: role,onSource:onSource}});
