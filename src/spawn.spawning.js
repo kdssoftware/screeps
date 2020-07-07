@@ -28,7 +28,7 @@ var spawnSpawing = {
                     pop.roles.harvester++;
                     break;
                 default:
-                    console.log("Couldnt find the role "+i.memory.role);
+                    //console.log("Couldnt find the role "+i.memory.role);
             }
         }
         if(pop.total>=12){
