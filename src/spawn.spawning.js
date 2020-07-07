@@ -2,8 +2,8 @@ let nr = 0;
 let doSpawn = (role,body=[WORK,WORK,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE])=>{
     var newName = role.substr(0,3) + nr;
     nr++;
-    Game.spawns['Spawn1'].spawnCreep(body, newName,
-        {memory: {role: role,onSource:0}});
+    console.log(Game.spawns['Spawn1'].spawnCreep(body, newName,
+        {memory: {role: role,onSource:0}}));
 };
 
 var spawnSpawing = {
@@ -20,7 +20,7 @@ var spawnSpawing = {
             switch(Game.creeps[i].memory.role){
                 case 'upgrader':
                     pop.roles.upgrader++;
-                    break;
+                    break;1
                 case 'builder':
                     pop.roles.builder++;
                     break;
