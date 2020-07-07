@@ -34,8 +34,12 @@ module.exports.loop = function () {
     for(var name in Game.creeps) {
         var creep = Game.creeps[name];
         if(!creep.memory.onSource){
-            creepsOnSources[creep.memory.sources]++;
-            creep.memory.onSource = creep.memory.sources;
+            creep.memory.onSource = creepsOnSources;
+            if(creepsOnSources==0){
+                creepsOnSources=1;
+            }else{
+                creepsOnSources=0;
+            }
         }
         if(creep.memory.role == 'harvester') {
             roleHarvester.run(creep);
