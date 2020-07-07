@@ -5,7 +5,7 @@ var spawnSpawning = require('spawn.spawning');
 
 module.exports.loop = function () {
 
-    let towers = Game.structures.find(FIND_STRUCTURES, {
+    let towers = Game.structures({
         filter: (structure) => structure.structureType == STRUCTURE_TOWER
     });
     for(let tower in towers) {
