@@ -47,6 +47,7 @@ module.exports.loop = function () {
             checkOnSources[1]--;
         }
         if(checkOnSources[0]!=checkOnSources[1]){
+            console.log('Rebasing onSources, ',checkOnSources);
             let creepsOnSources=0;
             for(let name in Game.creeps){
                 var creep = Game.creeps[name];
