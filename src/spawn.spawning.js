@@ -9,7 +9,7 @@ var spawnSpawing = {
     spawning: function(harvester,builder,upgrader){
         let oneHundredPercent = harvester+builder+upgrader;
         if(oneHundredPercent!= 100){
-            console.log("spawn.spawning arguments not equal to 100%! ",oneHundredPercent);
+            //console.log("spawn.spawning arguments not equal to 100%! ",oneHundredPercent);
         }
 
         let pop = {total:0,roles:{
