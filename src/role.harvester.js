@@ -5,11 +5,10 @@ var roleHarvester = {
         if(creep.store.getFreeCapacity() > 0) {
             var sources = creep.room.find(FIND_SOURCES);
             let harvest = creep.harvest(sources[0]);
-            console.log(harvest);
             if(harvest == ERR_NOT_IN_RANGE) {
-                creep.moveTo(sources[0], {visualizePathStyle: {stroke: '#ffaa00'}});
-            }else if(harvest==ERR_NOT_IN_RANGE){
-                creep.moveTo(sources[1], {visualizePathStyle: {stroke: '#ffaa00'}});
+                if(creep.moveTo(sources[0], {visualizePathStyle: {stroke: '#ffaa00'}})==ERR_NO_PATH){
+                    creep.moveTo(sources[1], {visualizePathStyle: {stroke: '#ffaa00'}})
+                };
             }
         }
         else {
