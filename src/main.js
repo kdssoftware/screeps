@@ -2,7 +2,7 @@ var roleHarvester = require('role.harvester');
 var roleUpgrader = require('role.upgrader');
 var roleBuilder = require('role.builder');
 var spawnSpawning = require('spawn.spawning');
-
+global.CURRENT_AMOUNT_OF_CREEPS = 0;
 module.exports.loop = function () {
 
     let towers = Game.rooms["W23S6"].find(FIND_MY_STRUCTURES,({
@@ -32,29 +32,34 @@ module.exports.loop = function () {
 
     spawnSpawning.spawning(35,50,15);
     let checkOnSources = [0,0];
+    CURRENT_AMOUNT_OF_CREEPS = 0;
     for(var name in Game.creeps) {
+        CURRENT_AMOUNT_OF_CREEPS++;
         var creep = Game.creeps[name];
         checkOnSources[creep.memory.onSource] ++;
     }
     console.log(checkOnSources);
-    if(checkOnSources[0]%2!=0){
-        checkOnSources[0]--;
-    }
-    if(checkOnSources[1]%2!=0){
-        checkOnSources[1]--;
-    }
-    if(checkOnSources[0]!=checkOnSources[1]){
-        let creepsOnSources=0;
-        for(let name in Game.creeps){
-            var creep = Game.creeps[name];
-            creep.memory.onSource = creepsOnSources;
-            if(creepsOnSources==0){
-                creepsOnSources=1;
-            }else{
-                creepsOnSources=0;
+    if(!CURRENT_AMOUNT_OF_CREEPS==(checkOnSources[0]+checkOnSources[1])){
+        if(checkOnSources[0]%2!=0){
+            checkOnSources[0]--;
+        }
+        if(checkOnSources[1]%2!=0){
+            checkOnSources[1]--;
+        }
+        if(checkOnSources[0]!=checkOnSources[1]){
+            let creepsOnSources=0;
+            for(let name in Game.creeps){
+                var creep = Game.creeps[name];
+                creep.memory.onSource = creepsOnSources;
+                if(creepsOnSources==0){
+                    creepsOnSources=1;
+                }else{
+                    creepsOnSources=0;
+                }
             }
         }
     }
+
 
     for(var name in Game.creeps) {
         var creep = Game.creeps[name];
