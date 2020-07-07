@@ -5,18 +5,22 @@ var spawnSpawning = require('spawn.spawning');
 
 module.exports.loop = function () {
 
-    var tower = Game.getObjectById('f670c61705a9700608261c86');
-    if(tower) {
-        var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
-            filter: (structure) => structure.hits < structure.hitsMax
-        });
-        if(closestDamagedStructure) {
-            tower.repair(closestDamagedStructure);
-        }
+    let towers = Game.rooms["W23S6"].find(FIND_MY_STRUCTURES,({
+        filter: (structure) => structure.structureType == STRUCTURE_TOWER
+    }));
+    for(let tower in towers) {
+        if (tower) {
+            var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
+                filter: (structure) => structure.hits < structure.hitsMax
+            });
+            if (closestDamagedStructure) {
+                tower.repair(closestDamagedStructure);
+            }
 
-        var closestHostile = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
-        if(closestHostile) {
-            tower.attack(closestHostile);
+            var closestHostile = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
+            if (closestHostile) {
+                tower.attack(closestHostile);
+            }
         }
     }
 
