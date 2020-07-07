@@ -2,7 +2,7 @@
 let doSpawn = (role,body=[WORK,CARRY,MOVE])=>{
     var newName = role + Game.time;
     Game.spawns['Spawn1'].spawnCreep(body, newName,
-        {memory: {role: role}});
+        {memory: {role: role,sources:0}});
 };
 
 var spawnSpawing = {
