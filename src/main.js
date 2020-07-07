@@ -4,7 +4,7 @@ var roleBuilder = require('role.builder');
 var spawnSpawning = require('spawn.spawning');
 
 module.exports.loop = function () {
-
+    //
     let towers = Game.structures({
         filter: (structure) => structure.structureType == STRUCTURE_TOWER
     });
