@@ -44,21 +44,21 @@ var spawnSpawing = {
                     case 'upgrader':
                         if(percentForCurrentRole<upgrader){
                             console.log('spawning a '+i+', is at '+percentForCurrentRole.toFixed(2)+'%');
-                            doSpawn(i,[CARRY,CARRY,WORK,WORK,MOVE]);
+                            doSpawn(i,[CARRY,CARRY,WORK,MOVE]);
                             return
                         }
                         break;
                     case 'builder':
                         if(percentForCurrentRole<builder){
                             console.log('spawning a '+i+', is at '+percentForCurrentRole.toFixed(2)+'%');
-                            doSpawn(i,[CARRY,WORK,WORK,MOVE,MOVE]);
+                            doSpawn(i,[CARRY,WORK,WORK,MOVE]);
                             return;
                         }
                         break;
                     case 'harvester':
                         if(percentForCurrentRole<=harvester){
                             console.log('spawning a '+i+', is at '+percentForCurrentRole.toFixed(2)+'%');
-                            doSpawn(i,[CARRY,CARRY,CARRY,WORK,MOVE]);
+                            doSpawn(i,[CARRY,CARRY,WORK,MOVE]);
                             return;
                         }
                         break;
