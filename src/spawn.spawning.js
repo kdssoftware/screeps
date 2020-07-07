@@ -38,18 +38,21 @@ var spawnSpawing = {
                 switch(i){
                     case 'upgrader':
                         if(percentForCurrentRole<upgrader){
+                            console.log('spawning a '+i+', is at'+percentForCurrentRole+'%');
                             doSpawn(i);
                             return
                         }
                         break;
                     case 'builder':
                         if(percentForCurrentRole<builder){
+                            console.log('spawning a '+i+', is at'+percentForCurrentRole+'%');
                             doSpawn(i);
                             return;
                         }
                         break;
                     case 'harvester':
                         if(percentForCurrentRole<=harvester){
+                            console.log('spawning a '+i+', is at'+percentForCurrentRole+'%');
                             doSpawn(i);
                             return;
                         }
