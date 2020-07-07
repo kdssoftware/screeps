@@ -31,9 +31,31 @@ module.exports.loop = function () {
     }
 
     spawnSpawning.spawning(35,50,15);
+    let checkOnSources = [0,0];
+    for(var name in Game.creeps) {
+        var creep = Game.creeps[name];
+        checkOnSources[creep.memory.onSource] ++;
+    }
+    console.log(checkOnSources);
+    if(checkOnSources[0]%2!=0){
+        checkOnSources[0]--;
+    }
+    if(checkOnSources[1]%2!=0){
+        checkOnSources[1]--;
+    }
+    if(checkOnSources[0]!=checkOnSources[1]){
+        for(let name in Game.creeps){
+            var creep = Game.creeps[name];
+            creep.memory.onSource = creepsOnSources;
+            if(creepsOnSources==0){
+                creepsOnSources=1;
+            }else{
+                creepsOnSources=0;
+            }
+        }
+    }
 
     for(var name in Game.creeps) {
-        console.log(creepsOnSources);
         var creep = Game.creeps[name];
         if(!creep.memory.onSource){
             creep.memory.onSource = creepsOnSources;
