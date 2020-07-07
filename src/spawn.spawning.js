@@ -31,7 +31,7 @@ var spawnSpawing = {
                     console.log("Couldnt find the role "+i.memory.role);
             }
         }
-        if(pop.total>=10){
+        if(pop.total>=12){
             return;
         }
         if(Game.rooms["W23S6"].energyAvailable>=300){
