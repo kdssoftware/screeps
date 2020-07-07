@@ -29,12 +29,14 @@ module.exports.loop = function () {
             delete Memory.creeps[name];
         }
     }
+
     spawnSpawning.spawning(35,50,15);
 
     for(var name in Game.creeps) {
+        console.log(creepsOnSources);
         var creep = Game.creeps[name];
         if(!creep.memory.onSource){
-            creep.memory.onSource = creepsOnSources;
+            creep.memory.onSource = null;
             if(creepsOnSources==0){
                 creepsOnSources=1;
             }else{
