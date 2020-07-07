@@ -38,7 +38,7 @@ var spawnSpawing = {
                 switch(i){
                     case 'upgrader':
                         if(percentForCurrentRole<upgrader){
-                            console.log('spawning a '+i+', is at'+percentForCurrentRole+'%');
+                            console.log('spawning a '+i+', is at '+percentForCurrentRole+'%');
                             doSpawn(i);
                             return
                         }
