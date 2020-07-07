@@ -35,9 +35,8 @@ module.exports.loop = function () {
     for(var name in Game.creeps) {
         console.log(creepsOnSources);
         var creep = Game.creeps[name];
-        creep.memory.onSource = null;
         if(!creep.memory.onSource){
-            creep.memory.onSource = null;
+            creep.memory.onSource = creepsOnSources;
             if(creepsOnSources==0){
                 creepsOnSources=1;
             }else{
